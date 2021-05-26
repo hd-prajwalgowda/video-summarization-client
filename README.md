@@ -1,1 +1,1 @@
-# video-summarization-client
+# Video Summarization Client App

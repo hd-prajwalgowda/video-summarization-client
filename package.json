@@ -1,0 +1,68 @@
+{
+  "name": "video-summarization-client",
+  "version": "0.0.1",
+  "description": "React Based web app for Video Summarization",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack server -p",
+    "dev": "webpack server --mode development --hot --progress --color --open --config=webpack.config.dev.js",
+    "build": "webpack -p --progress --colors",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hd-prajwalgowda/video-summarization-client.git"
+  },
+  "keywords": [
+    "Video-Summarization"
+  ],
+  "contributors": [
+    {
+      "name": "Nidhishree Talastha",
+      "email": "talasthanidhi@gmail.com"
+    },
+    {
+      "name": "HD Prajwal Gowda",
+      "email": "hdprajwalgowda@gmail.com"
+    },
+    {
+      "name": "Prathik Somanath",
+      "email": "prathik.s1999@gmail.com"
+    },
+    {
+      "name": "Venktesh Chavan",
+      "email": "venkteshchavan114@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hd-prajwalgowda/video-summarization-client/issues"
+  },
+  "homepage": "https://github.com/hd-prajwalgowda/video-summarization-client#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
