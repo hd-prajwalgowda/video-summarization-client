@@ -1,19 +1,59 @@
 import React from 'react';
-import Button from 'components/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import { useAuth } from 'provider/AuthProvider';
 
 import './global.css';
+import Login from 'screens/Login';
+import Register from 'screens/Register';
+import HomeScreen from 'screens/HomeScreen';
 
 const App = () => {
-  const buttonClicked = () => {
-    console.log('Button was clicked');
-  };
-
   return (
-    <div>
-      <p className="text-6xl font-bold">Video Summarization</p>
-      <Button title="Click Me" onClick={buttonClicked} />
-    </div>
+    <Router>
+      <div className="font-medium">
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <HomeScreen />
+          </Route>
+          <PrivateRoute path="/upload">
+            <HomeScreen />
+          </PrivateRoute>
+        </Switch>
+      </div>
+    </Router>
   );
 };
+
+function PrivateRoute({ children, ...rest }) {
+  let auth = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        !auth.isLoggedIn() ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+}
 
 export default App;

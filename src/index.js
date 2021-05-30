@@ -1,6 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from './App';
+import Wrapper from './Wrapper';
 
-render(<App />, document.getElementById('root'));
+render(
+  <React.StrictMode>
+    <Wrapper />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

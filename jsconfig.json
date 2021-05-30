@@ -7,6 +7,8 @@
   "paths": {
     "assets/*": ["/src/assets/*"],
     "components/*": ["/src/components/*"],
+    "screens/*": ["/src/screens/*"],
+    "provider/*": ["/src/provider/*"],
     "utils/*": ["/src/utils/*"]
   },
   "exclude": ["node_modules"]
