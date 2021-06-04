@@ -1,7 +1,8 @@
 import React from 'react';
+import Layout from '../../components/Layout';
 
 const HomeScreen = () => {
-  return <div>This is home screen</div>;
+  return <Layout></Layout>;
 };
 
 export default HomeScreen;
