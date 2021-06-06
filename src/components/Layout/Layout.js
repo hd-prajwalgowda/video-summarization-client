@@ -1,4 +1,5 @@
 import React from 'react';
+import FlexContainer from '../FlexContainer';
 import Navbar from '../Navbar';
 
 const Layout = ({ children }) => {
@@ -7,7 +8,7 @@ const Layout = ({ children }) => {
       <div className="fixed z-50 w-full h-12">
         <Navbar />
       </div>
-      {children}
+      <FlexContainer>{children}</FlexContainer>
       <div className="">Footer</div>
     </div>
   );

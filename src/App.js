@@ -11,6 +11,7 @@ import './global.css';
 import Login from 'screens/Login';
 import Register from 'screens/Register';
 import HomeScreen from 'screens/HomeScreen';
+import Upload from './screens/Upload';
 
 const App = () => {
   return (
@@ -20,15 +21,18 @@ const App = () => {
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="/upload">
+            <Upload />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/">
             <HomeScreen />
           </Route>
-          <PrivateRoute path="/upload">
-            <HomeScreen />
-          </PrivateRoute>
+          {/* <PrivateRoute path="/upload">
+            <Upload />
+          </PrivateRoute> */}
         </Switch>
       </div>
     </Router>
