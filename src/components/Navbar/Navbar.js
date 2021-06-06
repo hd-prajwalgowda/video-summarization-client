@@ -7,12 +7,12 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between bg-white-200 p-3 flex-wrap">
       <div>
-        <Link to="/" className="px-3 py-1 w-auto inline-flex items-center ">
+        <Link to="/" className="px-3 py-1 w-auto inline-flex items-center">
           <Logo />
         </Link>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex items-center font-medium">
         <Link
           to="/"
           className="inline-block w-auto px-3 py-2 text-black-300 hover:text-blue-500"
@@ -39,13 +39,13 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/upload"
+          to="/login"
           className="inline-block w-auto px-3 py-2 text-black-300 hover:text-blue-500"
         >
           Sign In
         </Link>
         <Link
-          to="/upload"
+          to="/register"
           className="inline-block w-auto px-3 py-2 text-black-300 hover:text-blue-500"
         >
           Sign Up
