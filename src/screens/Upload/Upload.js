@@ -129,7 +129,7 @@ const Upload = () => {
           </div>
         </Listbox>
         <div className="w-60 h-30 text-sm">
-          <label htmlFor className="font-semibold text-gray-400 py-2">
+          <label htmlFor="duration" className="font-semibold text-gray-400 py-2">
             Duration
           </label>
           <textarea

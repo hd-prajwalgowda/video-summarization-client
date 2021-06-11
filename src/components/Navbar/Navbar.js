@@ -5,7 +5,7 @@ import Logo from 'assets/logo.svg';
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between bg-white-200 p-3 flex-wrap">
+    <div className="flex items-center justify-between bg-white p-3 flex-wrap h-14">
       <div>
         <Link to="/" className="px-3 py-2 w-auto inline-flex items-center">
           <Logo />

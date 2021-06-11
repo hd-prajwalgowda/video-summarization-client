@@ -1,9 +1,40 @@
 import React from 'react';
+import axios from 'axios';
 import Button from 'components/Button';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout';
+import { useAuth } from 'provider/AuthProvider';
+import { useHistory } from 'react-router-dom';
+
+
 
 const Register = () => {
+
+  let auth = useAuth();
+  const history = useHistory();
+
+  const signupHandler = (e) => {
+    e.preventDefault();
+    const formData = {
+      email: e.target.email.value,
+      name: e.target.name.value,
+      password: e.target.password.value,
+    };
+    axios
+      .post('http://localhost:5000/auth/signup', formData)
+      .then(function (response) {
+        // console.log(response);
+        const { data:{token} }= response
+        auth.login({name:"Prajwal",email:"prajwal@gmail.com"},token)
+        history.push("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
+
   return (
     <Layout>
       <div className="flex items-center min-h-screen bg-white dark:bg-gray-900">
@@ -20,8 +51,7 @@ const Register = () => {
             <div className="m-7">
               <form
                 onSubmit={(e) => {
-                  e.preventDefault();
-                  console.log('the form was submitted');
+                  signupHandler(e)
                 }}
               >
                 <div className="mb-6">

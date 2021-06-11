@@ -10,7 +10,7 @@ function useProvideAuth() {
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
       let user = localStorage.getItem('user');
-      setUser(JSON.parse(user));
+      // setUser(JSON.parse(user));
       setSignin(true);
     }
   }, []);
@@ -28,8 +28,7 @@ function useProvideAuth() {
   };
 
   const storeUserDetailsAndToken = async (user, token) => {
-    localStorage.setItem('accessToken', token.access.token);
-    localStorage.setItem('refreshToken', token.refresh.token);
+    localStorage.setItem('accessToken', token);
     localStorage.setItem('user', JSON.stringify(user));
   };
 

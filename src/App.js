@@ -21,9 +21,9 @@ const App = () => {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/upload">
+          <PrivateRoute path="/upload">
             <Upload />
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
