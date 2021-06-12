@@ -9,16 +9,17 @@ function useProvideAuth() {
 
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
-      let user = localStorage.getItem('user');
+      // let user = localStorage.getItem('user');
       // setUser(JSON.parse(user));
       setSignin(true);
     }
   }, []);
 
-  const login = async ({ user, token }, cb) => {
+  const login = async ({ user, access_token,refresh_token }, cb) => {
     setUser(user);
     setSignin(true);
-    storeUserDetailsAndToken(user, token);
+    console.log(user, access_token, refresh_token)
+    storeUserDetailsAndToken(user, access_token, refresh_token);
   };
 
   const logout = async (cb) => {
@@ -27,8 +28,9 @@ function useProvideAuth() {
     localStorage.clear();
   };
 
-  const storeUserDetailsAndToken = async (user, token) => {
-    localStorage.setItem('accessToken', token);
+  const storeUserDetailsAndToken = async (user, access_token,refresh_token) => {
+    localStorage.setItem('accessToken', access_token);
+    localStorage.setItem('refreshToken', refresh_token);
     localStorage.setItem('user', JSON.stringify(user));
   };
 
@@ -37,7 +39,8 @@ function useProvideAuth() {
   };
 
   const isLoggedIn = () => {
-    return localStorage.getItem('accessToken') === null;
+    console.log(!!localStorage.getItem('accessToken'))
+    return !!localStorage.getItem('accessToken');
   };
 
   return {

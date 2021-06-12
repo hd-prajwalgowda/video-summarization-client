@@ -22,9 +22,8 @@ const Login = () => {
     axios
       .post('http://localhost:5000/auth/login', formData)
       .then(function (response) {
-        // console.log(response);
-        const { data:{token} }= response
-        auth.login({name:"Prajwal",email:"prajwal@gmail.com"},token)
+        const { data:{access_token,refresh_token,user} }= response
+        auth.login({user,access_token,refresh_token})
         history.push("/");
       })
       .catch(function (error) {
@@ -90,7 +89,7 @@ const Login = () => {
                   <p className="text-sm text-center text-gray-400">
                     Don&#x27;t have an account yet?
                     <Link
-                      to="/register"
+                      to="/signup"
                       className="text-blue-500 focus:outline-none focus:underline focus:text-blue-600"
                     >
                       Sign up

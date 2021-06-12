@@ -10,22 +10,21 @@ import { useHistory } from 'react-router-dom';
 
 const Register = () => {
 
-  let auth = useAuth();
+  const auth = useAuth();
   const history = useHistory();
 
   const signupHandler = (e) => {
     e.preventDefault();
     const formData = {
       email: e.target.email.value,
-      name: e.target.name.value,
+      name: e.target.userName.value,
       password: e.target.password.value,
     };
     axios
       .post('http://localhost:5000/auth/signup', formData)
       .then(function (response) {
-        // console.log(response);
-        const { data:{token} }= response
-        auth.login({name:"Prajwal",email:"prajwal@gmail.com"},token)
+        const { data:{access_token,refresh_token,user} }= response
+        auth.login({user,access_token,refresh_token})
         history.push("/");
       })
       .catch(function (error) {
@@ -114,7 +113,7 @@ const Register = () => {
                 <p className="text-sm text-center text-gray-400">
                   Already have an account?
                   <Link
-                    to="/login"
+                    to="/signin"
                     className="text-blue-500 focus:outline-none focus:underline focus:text-blue-600"
                   >
                     Sign in
