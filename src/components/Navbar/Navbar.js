@@ -1,13 +1,18 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import React from 'react';
-import { GoMarkGithub } from 'react-icons/go';
 import { Link } from 'react-router-dom';
+import { GoMarkGithub } from 'react-icons/go';
+import { Menu } from '@headlessui/react';
+
 import Logo from 'assets/logo.svg';
 import { useAuth } from 'provider/AuthProvider';
-
-import { Menu, Transition } from '@headlessui/react';
+import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
   const auth = useAuth();
+  const history = useHistory();
 
   return (
     <div className="flex items-center justify-between bg-white p-3 flex-wrap h-14">
@@ -52,15 +57,19 @@ const Navbar = () => {
             </div>
 
             <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-              <Menu.Item className="py-2 px-1">
+              <Menu.Item className="py-2 px-1 cursor-pointer hover:text-blue-500">
                 {({ active }) => (
-                  <button
+                  <div
                     className={`${
                       active ? 'text-blue-500' : 'text-gray-900'
                     } px-3 py-1 flex items-center`}
+                    onClick={() => {
+                      auth.logout();
+                      history.push('/signin');
+                    }}
                   >
                     Logout
-                  </button>
+                  </div>
                 )}
               </Menu.Item>
             </Menu.Items>

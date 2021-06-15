@@ -7,9 +7,7 @@ import FlexContainer from '../../components/FlexContainer';
 import { useAuth } from 'provider/AuthProvider';
 import { useHistory } from 'react-router-dom';
 
-
 const Login = () => {
-
   let auth = useAuth();
   const history = useHistory();
 
@@ -22,9 +20,11 @@ const Login = () => {
     axios
       .post('http://localhost:5000/auth/login', formData)
       .then(function (response) {
-        const { data:{access_token,refresh_token,user} }= response
-        auth.login({user,access_token,refresh_token})
-        history.push("/");
+        const {
+          data: { access_token, refresh_token, user },
+        } = response;
+        auth.login({ user, access_token, refresh_token });
+        history.push('/');
       })
       .catch(function (error) {
         console.log(error);

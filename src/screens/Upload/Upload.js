@@ -32,7 +32,7 @@ const Upload = () => {
       <div className="flex justify-center my-2">
         <Listbox
           as="div"
-          className="mr-8"
+          className="mr-8 "
           value={selectedUser}
           onChange={setSelectedUser}
         >
@@ -41,18 +41,22 @@ const Upload = () => {
           </Listbox.Label>
           <div className="relative">
             <span className="inline-block w-40">
-              <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default text-sm">
+              <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-pointer text-sm focus:outline-none ring-0">
                 <span className="block truncate">{selectedUser}</span>
               </Listbox.Button>
             </span>
-            <Listbox.Options className="border border-gray-300 rounded mt-1 w-40">
+            <Listbox.Options className="absolute border border-gray-300 rounded mt-1 w-40">
               {users.map((user) => (
-                <Listbox.Option key={user} value={user}>
+                <Listbox.Option
+                  key={user}
+                  value={user}
+                  className="cursor-pointer"
+                >
                   {({ selected, active }) => (
                     <div
                       className={`${
                         active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'
-                      } cursor-default-select-none relative py-2 pl-10 pr-4`}
+                      } relative py-2 pl-10 pr-4`}
                     >
                       <span
                         className={`${
@@ -90,13 +94,17 @@ const Upload = () => {
           </Listbox.Label>
           <div className="relative">
             <span className="inline-block w-40">
-              <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default text-sm">
+              <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md text-sm  focus:outline-none ring-0  cursor-pointer">
                 <span className="block truncate">{selectedVideo}</span>
               </Listbox.Button>
             </span>
-            <Listbox.Options className="border border-gray-300 rounded mt-1 w-40">
+            <Listbox.Options className="absolute border border-gray-300 rounded mt-1 w-40">
               {videos.map((video) => (
-                <Listbox.Option key={video} value={video}>
+                <Listbox.Option
+                  key={video}
+                  value={video}
+                  className="cursor-pointer"
+                >
                   {({ selected, active }) => (
                     <div
                       className={`${
@@ -129,7 +137,10 @@ const Upload = () => {
           </div>
         </Listbox>
         <div className="w-60 h-30 text-sm">
-          <label htmlFor="duration" className="font-semibold text-gray-400 py-2">
+          <label
+            htmlFor="duration"
+            className="font-semibold text-gray-400 py-2"
+          >
             Duration
           </label>
           <textarea

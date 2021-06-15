@@ -22,7 +22,7 @@ function useProvideAuth() {
     storeUserDetailsAndToken(user, access_token, refresh_token);
   };
 
-  const logout = async (cb) => {
+  const logout = async () => {
     setUser(null);
     setSignin(false);
     localStorage.clear();
