@@ -11,10 +11,10 @@ import './global.css';
 import SignIn from 'screens/SignIn';
 import SignUp from 'screens/SignUp';
 import HomeScreen from 'screens/HomeScreen';
-import Upload from './screens/Upload';
+import FileInput from 'screens/FileInput';
+import Upload from 'screens/Upload';
 
-
-const base_url = "http://localhost:5000";
+const base_url = 'http://localhost:5000';
 
 const App = () => {
   axios.interceptors.request.use(
@@ -25,7 +25,7 @@ const App = () => {
       if (allowedOrigins.includes(origin)) {
         config.headers.authorization = `Bearer ${token}`;
       }
-      console.log(config)
+      console.log(config);
       return config;
     },
     (error) => {
@@ -81,11 +81,17 @@ const App = () => {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <PrivateRoute path="/upload">
+          {/* <PrivateRoute path="/upload">
             <Upload />
-          </PrivateRoute>
+          </PrivateRoute> */}
+          <Route path="/submit_video">
+            <FileInput />
+          </Route>
           <Route path="/signin">
             <SignIn />
+          </Route>
+          <Route path="/upload">
+            <Upload />
           </Route>
           <Route path="/">
             <HomeScreen />

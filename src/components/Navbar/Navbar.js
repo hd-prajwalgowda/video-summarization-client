@@ -30,7 +30,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          to="/about"
+          to="/submit_video"
           className="inline-block w-auto px-3 py-2 text-gray-900 hover:text-blue-500"
         >
           About

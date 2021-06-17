@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import ReactPlayer from 'react-player';
 import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
@@ -10,13 +11,29 @@ const users = ['Nidhi', 'Prajwal', 'Prathik', 'Venkatesh'];
 
 const videos = ['video1.mp3', 'video2.mp3', 'video3.mp3'];
 
-const onClick = (values) => {
-  console.log(values);
-};
-
 const Upload = () => {
   const [selectedUser, setSelectedUser] = useState('Nidhi');
   const [selectedVideo, setSelectedVideo] = useState('video1.mp3');
+  const [timeStamp, setTimeStamp] = useState('');
+
+  const onClick = () => {
+    console.log(selectedUser);
+    console.log(selectedVideo);
+    console.log(timeStamp);
+
+    axios
+      .post('http://localhost:5000/api/upload_summary', {
+        timeStamp,
+        user: selectedUser,
+        video: selectedVideo,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <Layout>
@@ -141,13 +158,14 @@ const Upload = () => {
             htmlFor="duration"
             className="font-semibold text-gray-400 py-2"
           >
-            Duration
+            Duration {JSON.stringify(timeStamp)}
           </label>
           <textarea
             required=""
             name="message"
             id=""
             className="w-60 h-28 block bg-grey-lighter text-grey-darker border border-grey-lighter"
+            onChange={(e) => setTimeStamp(e.target.value)}
             placeholder=""
             spellCheck="false"
           ></textarea>
