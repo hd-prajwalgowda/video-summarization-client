@@ -33,7 +33,7 @@ const Navbar = () => {
           to="/submit_video"
           className="inline-block w-auto px-3 py-2 text-gray-900 hover:text-blue-500"
         >
-          About
+          Submit
         </Link>
         <Link
           to="/guide"
@@ -45,7 +45,7 @@ const Navbar = () => {
           to="/upload"
           className="inline-block w-auto px-3 py-2 text-gray-900 hover:text-blue-500"
         >
-          Upload
+          Summarize
         </Link>
 
         {auth.isLoggedIn() ? (
