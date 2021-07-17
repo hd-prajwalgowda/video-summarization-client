@@ -1,22 +1,7 @@
 {
   "name": "video-summarization-client",
-  "version": "0.0.1",
-  "description": "React Based web app for Video Summarization",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack server -p",
-    "dev": "webpack server --mode development --hot --progress --color --open --config=webpack.config.dev.js",
-    "build": "webpack -p --progress --colors",
-    "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hd-prajwalgowda/video-summarization-client.git"
-  },
-  "keywords": [
-    "Video-Summarization"
-  ],
+  "version": "0.1.0",
+  "private": true,
   "contributors": [
     {
       "name": "Nidhishree Talastha",
@@ -35,46 +20,51 @@
       "email": "venkteshchavan114@gmail.com"
     }
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hd-prajwalgowda/video-summarization-client/issues"
-  },
-  "homepage": "https://github.com/hd-prajwalgowda/video-summarization-client#readme",
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@headlessui/react": "^1.2.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-player": "^2.9.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@svgr/webpack": "^5.5.0",
-    "autoprefixer": "^10.2.6",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.6",
-    "eslint": "^7.27.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "html-webpack-plugin": "^5.3.1",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "postcss": "^8.3.0",
-    "postcss-loader": "^5.3.0",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.3.0",
-    "style-loader": "^2.0.0",
-    "tailwindcss": "^2.1.2",
-    "webpack": "^5.37.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "autoprefixer": "^9.8.6",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "postcss": "^7.0.36",
+    "prettier": "^2.3.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   }
 }

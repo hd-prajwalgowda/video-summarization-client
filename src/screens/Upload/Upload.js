@@ -54,7 +54,7 @@ const Upload = () => {
           onChange={setSelectedUser}
         >
           <Listbox.Label className="text-gray-400 text-sm font-medium">
-            Select User...
+            Select User
           </Listbox.Label>
           <div className="relative">
             <span className="inline-block w-40">
@@ -107,7 +107,7 @@ const Upload = () => {
           onChange={setSelectedVideo}
         >
           <Listbox.Label className="text-gray-400 text-sm font-medium">
-            Select Video...
+            Select Video
           </Listbox.Label>
           <div className="relative">
             <span className="inline-block w-40">

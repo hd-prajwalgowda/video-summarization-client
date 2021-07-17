@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom';
-import { useAuth } from 'provider/AuthProvider';
+// import { useAuth } from 'provider/AuthProvider';
 import axios from 'axios';
 import './global.css';
 import SignIn from 'screens/SignIn';
@@ -105,25 +105,25 @@ const App = () => {
   );
 };
 
-function PrivateRoute({ children, ...rest }) {
-  let auth = useAuth();
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        auth.isLoggedIn() ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/signin',
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+// function PrivateRoute({ children, ...rest }) {
+//   let auth = useAuth();
+//   return (
+//     <Route
+//       {...rest}
+//       render={({ location }) =>
+//         auth.isLoggedIn() ? (
+//           children
+//         ) : (
+//           <Redirect
+//             to={{
+//               pathname: '/signin',
+//               state: { from: location },
+//             }}
+//           />
+//         )
+//       }
+//     />
+//   );
+// }
 
 export default App;
